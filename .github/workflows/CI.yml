@@ -21,5 +21,7 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: docker build -t nodeapp-to-ec2-cicd .
+    - name: Tag the Docker image
+      run: docker tag nodeapp-to-ec2-cicd cornelia247/nodeapp-to-ec2-cicd:latest
     - name: push to Dockerhub
       run: docker push cornelia247/nodeapp-to-ec2-cicd:latest
