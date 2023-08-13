@@ -32,7 +32,7 @@ app.delete('/tasks/:id', (req, res) => {
   const index = tasks.findIndex((task) => task.id === taskId);
 
   if (index === -1) {
-    return res.status(404).json({ error: 'Task not found.' });
+    return res.status(404).json({ error: 'Oh no Task not found.' });
   }
 
   tasks.splice(index, 1);

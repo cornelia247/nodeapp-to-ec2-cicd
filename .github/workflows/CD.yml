@@ -1,0 +1,21 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types:
+        - completed
+
+jobs:
+
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - name: pull from Dockerhub
+      run: sudo docker pull cornelia247/nodeapp-to-ec2-cicd:latest
+    - name: Delete Old container
+      run: sudo docker rm -f nodeapp-to-ec2-cicd-container || true
+    - name: Run Container
+      run: sudo docker run -d -p 3000:3000 --name nodeapp-to-ec2-cicd-container cornelia247/nodeapp-to-ec2-cicd
