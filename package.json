@@ -2,7 +2,7 @@
   "name": "nodeapp",
   "version": "1.0.0",
   "description": "A simple todo list app front-end",
-  "main": "index.html",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"No tests specified\"",
     "start": "node app.js"
